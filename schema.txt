@@ -1,0 +1,72 @@
+// databases concerned:
+// ps_costumer
+    id_costumer
+    
+    firstname
+    lastname
+    
+    birthday
+
+    email
+
+    date_add ?? plus ancienne date = creation de compte
+    date_upd ?? plus recent date   
+
+
+// ps_adress
+    id_costumer            CLEE
+    
+    id_adress = code postal ?? a voir
+    
+    adress1 = adresse 1
+    adress2 = adresse 2
+    
+    postcode              =  CODE POSTALE
+    city                  =  VILLE
+
+    email
+
+    phone
+    phone_mobile
+
+    company               =  ENTREPRISE
+    
+
+    first name    
+    last name
+
+//ps_costumer_group
+            id_costumer
+            id_group 
+
+            a voir
+
+//ps_group
+            reduction            A VOIR
+
+
+
+//ps_cart
+            id_costumer          A VOIR
+            id_cart
+
+            PANIERS ABANDONEE A VOIR
+
+
+
+//ps_costumer_message
+
+
+            message REPEAT PUBLICITE SPAM BOT !! a penser efface compte client le moment que la message est repette sur plusieres comptes etc
+            BLOQUER LIPADRESS
+
+            JAI PAS TROUVE ID_COSTUMER DE LA MESSAGE
+
+
+            
+
+
+
+
+
+    
