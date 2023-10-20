@@ -13,6 +13,10 @@ class CustomerData
         $this->pdo = $pdo;
     }
 
+      // this function fetches general customer data
+    // cette function fetch retourne des infos client plus enerale
+
+
     public function display_dataCustomer($limit)
     {
         $sql = "SELECT * FROM ps_customer ORDER BY id_customer DESC ";
@@ -27,6 +31,10 @@ class CustomerData
         $data_Customer->execute();
         return $data_Customer->fetchAll(PDO::FETCH_ASSOC);
     }
+
+
+    // this function fetches the address client data for a certain id customer
+    // cette function fetch retourne des infos adresse pour un certain id customer
 
     public function display_dataCustomerAddress($id_customer)
     {
