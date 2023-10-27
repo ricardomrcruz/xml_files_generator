@@ -2,6 +2,8 @@
 header('Content-Type: text/xml');
 
 $limit = isset($_GET["limit"]) ? intval($_GET["limit"]) : null;
+$limit = isset($_GET["limit"]) ? intval($_GET["date"]) : null;
+
 
 include 'inc/dbconnection.php'; //connection bdd
 include 'model/dateInterval.php'; //calculatrice dateInterval
@@ -65,6 +67,10 @@ foreach ($rows as $row) {
     $date = date('d-m-Y', strtotime($registration_date)); // Extraction date in d-m-Y
     $registration_date_element = $xml->createElement("registration_date", $date);
     $client->appendChild($registration_date_element);
+
+    $date_upd = $row['date_upd'];
+    $date_upd_element = $xml->createElement("date_upd", $date_upd);
+    $client->appendChild($date_upd_element);
 
     // function call
 

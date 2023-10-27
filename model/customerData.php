@@ -16,9 +16,14 @@ class CustomerData
       // this function fetches general customer data
     // cette function fetch retourne des infos client plus enerale
 
+    //WHERE date_upd > DATE_SUB(NOW(), INTERVAL 100 DAY)
+
     public function display_dataCustomer($limit)
     {
-        $sql = "SELECT * FROM ps_customer ORDER BY id_customer DESC ";
+        $sql = "SELECT * FROM ps_customer ORDER BY id_customer DESC";
+        if(!empty($date)){
+            $sql = "SELECT * FROM ps_customer WHERE date_upd > DATE_SUB(NOW(), INTERVAL $date DAY) ORDER BY id_customer DESC";
+        }
         if ($limit !== null) {
             $sql .= " LIMIT :limit"; // Query parametre au niveau securité
             $data_Customer = $this->pdo->prepare($sql);
@@ -36,7 +41,7 @@ class CustomerData
 
     public function display_dataCustomerAddress($id_customer)
     {
-        $sql = "SELECT * FROM ps_address WHERE id_customer = :id_customer";
+        $sql = "SELECT * FROM ps_address WHERE id_customer = :id_customer LIMIT 1";
         $dataCustomerAddress = $this->pdo->prepare($sql);
         $dataCustomerAddress->bindParam(':id_customer', $id_customer, PDO::PARAM_INT);
         $dataCustomerAddress->execute();
